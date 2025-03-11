@@ -1,28 +1,25 @@
-  const initialState ={
-    balance:0,
-    loan:0,
-    loanPurpose:""
+import { type } from "@testing-library/user-event/dist/type"
+import { applyMiddleware, combineReducers, createStore } from "redux"  
+import accountReducer from "./features/accounts/accountSlice"
+import customerReducer from "./features/customers/customerSlice"
+import { thunk } from "redux-thunk"
+  
+ 
+ 
 
-  }
+  
+  const rootReducer = combineReducers({ 
+      account: accountReducer,
+      customer:customerReducer
+    })
+    const store = createStore(rootReducer,applyMiddleware(thunk))
 
-  function reducer(state= initialState,action){
-    switch(action.type){
-        case "account/deposit":
-            return {...state, balance: state.balance + action.payload}
-        case "account/withdraw":
-            return {...state, balance: state.balance - action.payload}
-        case "account/requestLoan":
-            if(state.loan > 0) return
-            // Later
-            return {...state, loan:action.payload}
-        case "account/payLoan":
-            
-            return {...state,loan: 0, loanPurpose:"",
-                balance: state.balance - state.loan
-            }
-    
+    export default store;
 
-            default:
-                return state
-    }
-  }
+
+
+
+
+
+
+  
