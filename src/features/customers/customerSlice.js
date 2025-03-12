@@ -7,13 +7,13 @@ const initialStateCustomer ={
 
   export default function customerReducer(state = initialStateCustomer,action){
     switch(action.type){
-        case "account/createCustomer":
+        case "customer/createCustomer":
             return{
                 ...state,fullName: action.payload.fullName,
                 nationalID: action.payload.nationalID,
                 createdAt: action.payload.createdAt
             }
-        case "account/updateCustomer":
+        case "customer/updateCustomer":
             return{
                 ...state,fullName: action.payload.fullName,
                 nationalID: state.nationalID,
@@ -28,14 +28,14 @@ const initialStateCustomer ={
 
 
 export  function createCustomer(fullName,nationalID){
-    return {type:'account/createCustomer', payload:{
+    return {type:'customer/createCustomer', payload:{
         fullName: fullName,
         nationalID:nationalID,
         createdAt: new Date().toLocaleString()
     }}
 }
 export function updateCustomer(fullName){
-    return {type:'account/updateCustomer', payload:
+    return {type:'customer/updateCustomer', payload:
         fullName
         
     }
