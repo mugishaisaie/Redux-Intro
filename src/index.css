@@ -14,8 +14,11 @@ select {
 button {
   text-transform: uppercase;
   font-weight: bold;
-  padding: 6px 8px;
+  padding: 6px 12px;
   cursor: pointer;
+  background-color: rgb(27, 188, 118);
+  border-radius: 5px;
+  border: none;
 }
 
 .inputs {
@@ -25,6 +28,10 @@ button {
 
 .inputs > * + * {
   margin-top: 20px;
+}
+
+input{
+  
 }
 
 .balance {
@@ -37,4 +44,10 @@ button {
   font-size: 32px;
   min-width: 180px;
   text-align: center;
+}
+
+h2 .customer{
+  background-color: rgb(28, 184, 111);
+  font-size: 1.3rem;
+  font-weight: bold;
 }
